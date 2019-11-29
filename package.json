@@ -30,6 +30,10 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
+    "eslint": "^6.7.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
     "nodemon": "^2.0.1",
     "path": "^0.12.7"
   }
