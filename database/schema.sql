@@ -4,20 +4,17 @@ USE airbnb;
 
 CREATE TABLE IF NOT EXISTS users (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(20)
+  name VARCHAR(45)
 );
-
 CREATE TABLE IF NOT EXISTS owners_responses (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   response VARCHAR(280)
 );
-
 CREATE TABLE IF NOT EXISTS listings (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(45),
-  owner VARCHAR(20)
+  owner VARCHAR(45)
 );
-
 CREATE TABLE IF NOT EXISTS reviews (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   avg_rating INT,
@@ -38,6 +35,6 @@ CREATE TABLE IF NOT EXISTS reviews (
   owners_responses_id INT,
   listings_id INT,
   FOREIGN KEY (users_id) REFERENCES users(id),
-  FOREIGN KEY (owners_responses_id) REFERENCES oweners_responses(id),
+  FOREIGN KEY (owners_responses_id) REFERENCES owners_responses(id),
   FOREIGN KEY (listings_id) REFERENCES listings(id)
 );

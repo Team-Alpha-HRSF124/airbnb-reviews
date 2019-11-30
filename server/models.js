@@ -12,8 +12,8 @@ connection.connect();
 
 module.exports = {
   users: (fakeUser) => {
-    let queryVal = [fakeUser.id, fakeUser.name];
-    let quuery = 'INSERT INTO USERS (id, name) VALUES(?, ?)';
+    const queryVal = [fakeUser.name];
+    const quuery = 'INSERT INTO USERS (name) VALUES(?)';
     connection.query(quuery, queryVal, (err, data) => {
       if (err) {
         console.log(err);
