@@ -22,4 +22,26 @@ module.exports = {
       }
     });
   },
+  listings: (fakeListings) => {
+    const queryVal = [fakeListings.title, fakeListings.owner];
+    const quuery = 'INSERT INTO listings (title, owner) VALUES(?, ?)';
+    connection.query(quuery, queryVal, (err, data) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(data);
+      }
+    });
+  },
+  ownersResponses: (fakeResponses) => {
+    const queryVal = [fakeResponses.response];
+    const quuery = 'INSERT INTO owners_responses (response) VALUES(?)';
+    connection.query(quuery, queryVal, (err, data) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(data);
+      }
+    });
+  },
 };
