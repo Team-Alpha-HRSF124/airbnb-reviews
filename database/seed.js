@@ -8,6 +8,7 @@ function users() {
     Models.users({ name: randomName });
   }
 }
+
 function listings() {
   for (let i = 0; i < 100; i += 1) {
     const randomListingTitle = faker.lorem.words();
@@ -16,13 +17,17 @@ function listings() {
   }
 }
 
-function randomOwnerResponses() {
+function ownerResponses() {
   for (let i = 0; i < 500; i += 1) {
     const randomOwnerResponse = faker.lorem.sentences();
     Models.ownersResponses({ response: randomOwnerResponse });
   }
 }
 
-users();
-listings();
-randomOwnerResponses();
+function reviews() {
+
+}
+
+// users();
+// listings();
+// ownerResponses();
