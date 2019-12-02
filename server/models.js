@@ -50,9 +50,20 @@ module.exports = {
       }
     });
   },
+  reviews: (fakeData) => {
+    const queryVal = [fakeData.date, fakeData.review, fakeData.users_id, fakeData.listings_id];
+    const quuery = 'INSERT INTO REVIEWS (date, review, users_id,listings_id) VALUES(?, ?, ?, ?)';
+    connection.query(quuery, queryVal, (err, data) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(data);
+      }
+    });
+  },
   ownersResponses: (fakeResponses) => {
-    const queryVal = [fakeResponses.response];
-    const quuery = 'INSERT INTO owners_responses (response) VALUES(?)';
+    const queryVal = [fakeResponses.response, fakeResponses.reviews_id, fakeResponses.owners_id];
+    const quuery = 'INSERT INTO owners_responses (response, reviews_id, owners_id) VALUES(?, ?, ?)';
     connection.query(quuery, queryVal, (err, data) => {
       if (err) {
         console.log(err);

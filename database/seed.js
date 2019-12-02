@@ -54,14 +54,43 @@ function listings() {
   }
 }
 
+let reviewCounter = 0;
+
+function reviews() {
+  for (let i = 1; i <= 100; i += 1) {
+    const randomReviewCount = Math.floor(Math.random() * (50 - 4 + 1) + 4);
+    for (let j = 0; j < randomReviewCount; j += 1) {
+      const date = faker.date.past();
+      const review = faker.lorem.sentences();
+      const users_id = Math.floor(Math.random() * (3000 - 1 + 1) + 1);
+      const listings_id = i;
+      Models.reviews({
+        date,
+        review,
+        users_id,
+        listings_id,
+      });
+      reviewCounter += 1;
+    }
+  }
+}
+
 function ownerResponses() {
-  for (let i = 0; i < 500; i += 1) {
-    const randomOwnerResponse = faker.lorem.sentences();
-    Models.ownersResponses({ response: randomOwnerResponse });
+  const responseCounts = reviewCounter / 5;
+  for (let i = 0; i < responseCounts; i += 1) {
+    const response = faker.lorem.sentences();
+    const reviews_id = Math.floor(Math.random() * (reviewCounter - 1 + 1) + 1);
+    const owners_id = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+    Models.ownersResponses({
+      response,
+      reviews_id,
+      owners_id,
+    });
   }
 }
 
 users();
 owners();
 listings();
-// ownerResponses();
+reviews();
+ownerResponses();

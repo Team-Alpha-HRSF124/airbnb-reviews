@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS listings (
 CREATE TABLE IF NOT EXISTS reviews (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   date VARCHAR(45),
-  review VARCHAR(280),
+  review VARCHAR(2000),
   users_id INT,
   listings_id INT,
   FOREIGN KEY (users_id) REFERENCES users(id),
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS reviews (
 
 CREATE TABLE IF NOT EXISTS owners_responses (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  response VARCHAR(280),
+  response VARCHAR(2000),
   reviews_id INT,
   owners_id INT,
   FOREIGN KEY (reviews_id) REFERENCES reviews(id),
