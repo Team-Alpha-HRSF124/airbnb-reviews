@@ -4,7 +4,6 @@ users: 1-3000 id
 
 listings: 1-100 --> FK of owners_id has to be 1-100
 
-
 let reviewCounter;
 
 reviews: 3-50 * listings

@@ -12,8 +12,8 @@ connection.connect();
 
 module.exports = {
   users: (fakeUser) => {
-    const queryVal = [fakeUser.name];
-    const quuery = 'INSERT INTO USERS (name) VALUES(?)';
+    const queryVal = [fakeUser.name, fakeUser.image];
+    const quuery = 'INSERT INTO USERS (name, image) VALUES(?, ?)';
     connection.query(quuery, queryVal, (err, data) => {
       if (err) {
         console.log(err);
@@ -22,9 +22,26 @@ module.exports = {
       }
     });
   },
-  listings: (fakeListings) => {
-    const queryVal = [fakeListings.title, fakeListings.owner];
-    const quuery = 'INSERT INTO listings (title, owner) VALUES(?, ?)';
+  owners: (fakeData) => {
+    const queryVal = [fakeData.name, fakeData.image];
+    const quuery = 'INSERT INTO OWNERS (name, image) VALUES(?, ?)';
+    connection.query(quuery, queryVal, (err, data) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(data);
+      }
+    });
+  },
+  listings: (d) => {
+    const queryVal = [d.title, d.avg_rating, d.communication,
+      d.check_in, d.accuracy, d.value,
+      d.cleanliness,
+      d.hospitality, d.stylish, d.sparkling_clean,
+      d.quick_responses, d.amazing_amenities, d.counts, d.owners_id];
+
+    const quuery = 'INSERT INTO listings (title, avg_rating, communication, check_in, accuracy, value, cleanliness, hospitality, stylish,sparkling_clean, quick_responses, amazing_amenities, counts, owners_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+
     connection.query(quuery, queryVal, (err, data) => {
       if (err) {
         console.log(err);
