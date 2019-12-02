@@ -62,7 +62,7 @@ function reviews() {
     for (let j = 0; j < randomReviewCount; j += 1) {
       const date = faker.date.past();
       const review = faker.lorem.sentences();
-      const users_id = Math.floor(Math.random() * (3000 - 1 + 1) + 1);
+      const users_id = Math.floor(Math.random() * (3000) + 1);
       const listings_id = i;
       Models.reviews({
         date,
@@ -79,8 +79,8 @@ function ownerResponses() {
   const responseCounts = reviewCounter / 5;
   for (let i = 0; i < responseCounts; i += 1) {
     const response = faker.lorem.sentences();
-    const reviews_id = Math.floor(Math.random() * (reviewCounter - 1 + 1) + 1);
-    const owners_id = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+    const reviews_id = Math.floor(Math.random() * (reviewCounter) + 1);
+    const owners_id = Math.floor(Math.random() * (100) + 1);
     Models.ownersResponses({
       response,
       reviews_id,
