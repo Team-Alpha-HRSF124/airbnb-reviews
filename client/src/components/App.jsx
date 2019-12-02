@@ -1,5 +1,7 @@
+/* eslint-disable import/extensions */
 import React from 'react';
-// import Stats from './Stats.jsx';
+import axios from 'axios';
+import Stats from './Stats.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,10 +13,16 @@ class App extends React.Component {
     };
   }
 
+  getListing() {
+
+  }
+
   render() {
+    const listing = this.state.listing;
     return (
       <div>
-        Hello from App.jsx
+        Reviews:
+        <Stats listing={listing} />
       </div>
     );
   }
