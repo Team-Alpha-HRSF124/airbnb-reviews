@@ -1,11 +1,13 @@
 import React from 'react';
+// import Stats from './Stats.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-
+      listing: [],
+      reviews: [],
     };
   }
 

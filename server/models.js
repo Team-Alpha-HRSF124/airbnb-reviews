@@ -73,4 +73,14 @@ module.exports = {
       }
     });
   },
+  getListing: (callback, id) => {
+    const query = `select * from listings where id = ${id.id}`;
+    connection.query(query, (err, data) => {
+      if (err) {
+        callback(err);
+      } else {
+        callback(null, data);
+      }
+    });
+  },
 };
