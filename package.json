@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "react-dev": "npx webpack -w -d",
     "start": "nodemon server/index.js",
-    "seed:db": "node database/seed.js"
+    "seed:db": "node database/seed.js",
+    "jest": "npx jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
+    "jest": "^24.9.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   },
