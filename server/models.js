@@ -62,8 +62,9 @@ module.exports = {
     });
   },
   ownersResponses: (fakeResponses) => {
-    const queryVal = [fakeResponses.response, fakeResponses.reviews_id, fakeResponses.owners_id];
-    const quuery = 'INSERT INTO owners_responses (response, reviews_id, owners_id) VALUES(?, ?, ?)';
+    const queryVal = [fakeResponses.response,
+      fakeResponses.date, fakeResponses.reviews_id, fakeResponses.owners_id];
+    const quuery = 'INSERT INTO owners_responses (response, date, reviews_id, owners_id) VALUES(?, ?, ?, ?)';
     connection.query(quuery, queryVal, (err, data) => {
       if (err) {
         console.log(err);

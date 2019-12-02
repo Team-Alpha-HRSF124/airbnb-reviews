@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS reviews (
 CREATE TABLE IF NOT EXISTS owners_responses (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   response VARCHAR(2000),
+  date VARCHAR(45),
   reviews_id INT,
   owners_id INT,
   FOREIGN KEY (reviews_id) REFERENCES reviews(id),
