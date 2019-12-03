@@ -12,6 +12,7 @@ const Stats = ({
     <li>ID: {id}</li>
     <li>Title: {title}</li>
     <li>* {avg_rating}</li>
+    <li>{counts} Reviews</li>
     <li>communication: {communication}</li>
     <li>cleanliness: {cleanliness}</li>
     <li>hospitality: {hospitality}</li>
@@ -19,7 +20,6 @@ const Stats = ({
     <li>sparkling clean: {sparkling_clean}</li>
     <li>quick responses: {quick_responses}</li>
     <li>amazing amenities: {amazing_amenities}</li>
-    <li>Rating: {counts}</li>
   </ul>
 );
 
