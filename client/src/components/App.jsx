@@ -32,7 +32,7 @@ class App extends React.Component {
     }
     axios.get(url)
       .then((results) => {
-        this.setState({ listing: results.data.listing[0], reviews: results.data.reviews });
+        this.setState({ listing: results.data.stats[0], reviews: results.data.reviews });
       })
       .catch((err) => {
         throw (err);

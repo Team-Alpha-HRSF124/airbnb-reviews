@@ -84,7 +84,7 @@ module.exports = {
         if (err) {
           parallelDone(err);
         }
-        returnedData.listing = results;
+        returnedData.stats = results;
         parallelDone();
       });
     }, (parallelDone) => {
