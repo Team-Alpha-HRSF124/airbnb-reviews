@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import ReviewsEntry from './ReviewsEntry.jsx';
 

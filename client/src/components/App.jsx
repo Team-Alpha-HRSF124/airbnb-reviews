@@ -1,8 +1,8 @@
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import axios from 'axios';
-import Stats from './Stats';
-import Reviews from './Reviews';
+import Stats from './Stats.jsx';
+import Reviews from './Reviews.jsx';
 
 class App extends React.Component {
   constructor(props) {

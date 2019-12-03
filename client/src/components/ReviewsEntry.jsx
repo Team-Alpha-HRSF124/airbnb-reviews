@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable camelcase */
 import React from 'react';
+
 const moment = require('moment');
 
 const ReviewsEntry = ({
