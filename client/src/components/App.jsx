@@ -3,6 +3,7 @@
 import React from 'react';
 import axios from 'axios';
 import Stats from './Stats.jsx';
+import Reviews from './Reviews.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -39,11 +40,12 @@ class App extends React.Component {
   }
 
   render() {
-    const { listing, reviews} = this.state;
+    const { listing, reviews } = this.state;
     return (
       <div>
         Reviews:
         <Stats listing={listing} />
+        <Reviews reviews={reviews} />
       </div>
     );
   }
