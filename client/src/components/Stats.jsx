@@ -2,7 +2,12 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const Stats = ({ listing: { id, title, avg_rating } }) => (
+const Stats = ({
+  listing: {
+    id, title, avg_rating, communication, cleanliness,
+    hospitality, stylish, sparkling_clean, quick_responses, amazing_amenities, counts,
+  },
+}) => (
   <ul>
     <li>ID: {id}</li>
     <li>Title: {title}</li>
