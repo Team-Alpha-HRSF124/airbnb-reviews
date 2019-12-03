@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1575415400726" clover="3.2.0">
-  <project timestamp="1575415400726" name="All files">
+<coverage generated="1575416921386" clover="3.2.0">
+  <project timestamp="1575416921386" name="All files">
     <metrics statements="24" coveredstatements="15" conditionals="2" coveredconditionals="1" methods="10" coveredmethods="4" elements="36" coveredelements="20" complexity="0" loc="24" ncloc="24" packages="1" files="4" classes="4"/>
     <file name="App.jsx" path="/Users/arashabbasi/hackreactor/fec/airbnb-reviews/client/src/components/App.jsx">
       <metrics statements="16" coveredstatements="11" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="4"/>
