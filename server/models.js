@@ -64,7 +64,7 @@ module.exports = {
   },
   ownersResponses: (fakeResponses) => {
     const queryVal = [fakeResponses.response,
-    fakeResponses.date, fakeResponses.reviews_id, fakeResponses.owners_id];
+      fakeResponses.date, fakeResponses.reviews_id, fakeResponses.owners_id];
     const quuery = 'INSERT INTO owners_responses (response, date, reviews_id, owners_id) VALUES(?, ?, ?, ?)';
     connection.query(quuery, queryVal, (err, data) => {
       if (err) {
@@ -76,7 +76,7 @@ module.exports = {
   },
   getListing: (callback, id) => {
     const query1 = `select * from listings where id = ${id.id}`;
-    const query2 = `select * from reviews where listings_id = ${id.id}`;
+    const query2 = `select users.name, users.image, reviews.date, reviews.review, owners.name as ownersName, owners.image as ownersImage, owners_responses.response, owners_responses.date as ownersResponseDate from reviews join users on reviews.users_id = users.id left join owners_responses on reviews.id = owners_responses.reviews_id left join owners on owners.id = owners_responses.owners_id where reviews.listings_id = ${id.id}`;
     const returnedData = {};
 
     async.parallel([(parallelDone) => {

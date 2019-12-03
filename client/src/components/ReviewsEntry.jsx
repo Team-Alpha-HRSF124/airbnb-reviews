@@ -4,20 +4,42 @@ import React from 'react';
 
 const ReviewsEntry = ({
   review: {
-    users_id,
+    name,
+    image,
     date,
     review,
+    ownersName,
+    ownersImage,
+    ownersResponseDate,
+    response,
   },
 }) => (
   <dl>
     <dt>
-      Username:
-      {users_id}
+      {name}
+    </dt>
+    <dt>
+    <img src={image} />
     </dt>
     <dt>
       {date}
     </dt>
-    <dt>{review}</dt>
+    <dt>
+      {review}
+    </dt>
+    <dt>
+      Owner:
+      {ownersName}
+    </dt>
+    <dt>
+      <img src={ownersImage} />
+    </dt>
+    <dt>
+      {ownersResponseDate}
+    </dt>
+    <dt>
+      {response}
+    </dt>
   </dl>
 );
 
