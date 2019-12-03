@@ -4,7 +4,7 @@ import ReviewsEntry from './ReviewsEntry.jsx';
 
 const Reviews = (props) => (
   <ul>
-    {}
+    Reviews
   </ul>
 );
 

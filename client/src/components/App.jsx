@@ -31,8 +31,8 @@ class App extends React.Component {
       url = `/api/listing/${id}`;
     }
     axios.get(url)
-      .then((listing) => {
-        this.setState({ listing: listing.data[0] });
+      .then((results) => {
+        this.setState({ listing: results.data.listing[0], reviews: results.data.reviews });
       })
       .catch((err) => {
         throw (err);
@@ -43,7 +43,7 @@ class App extends React.Component {
     const { listing, reviews } = this.state;
     return (
       <div>
-        Reviews:
+        Stats:
         <Stats listing={listing} />
         <Reviews reviews={reviews} />
       </div>
