@@ -30,7 +30,7 @@ class App extends React.Component {
   }
 
   render() {
-    const listing = this.state.listing;
+    const { listing, reviews} = this.state;
     return (
       <div>
         Reviews:
