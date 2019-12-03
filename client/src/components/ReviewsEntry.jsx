@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable camelcase */
 import React from 'react';
+const moment = require('moment');
 
 const ReviewsEntry = ({
   review: {
@@ -22,7 +23,7 @@ const ReviewsEntry = ({
     <img src={image} />
     </dt>
     <dt>
-      {date}
+      {moment(date).format('MMMM YYYY')}
     </dt>
     <dt>
       {review}
@@ -35,7 +36,7 @@ const ReviewsEntry = ({
       <img src={ownersImage} />
     </dt>
     <dt>
-      {ownersResponseDate}
+      {moment(ownersResponseDate).format('MMMM YYYY')}
     </dt>
     <dt>
       {response}

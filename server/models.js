@@ -97,7 +97,6 @@ module.exports = {
       });
     }], (err) => {
       if (err) console.log(err);
-      // connection.end();
       callback(null, returnedData);
     });
   },
