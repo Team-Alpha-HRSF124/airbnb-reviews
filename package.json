@@ -4,11 +4,10 @@
   "description": "This repo is for reviews module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "react-dev": "npx webpack -w -d",
     "start": "nodemon server/index.js",
     "seed:db": "node database/seed.js",
-    "jest": "npx jest --coverage"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
