@@ -20,7 +20,16 @@ class App extends React.Component {
   }
 
   getListing() {
-    axios.get('/api/listing/1')
+    const endpoint = window.location.pathname;
+    let url = '';
+    if (endpoint.length === 1) {
+      url = '/api/listing/1';
+    } else {
+      const arr = endpoint.split('/');
+      const id = arr[arr.length - 2];
+      url = `/api/listing/${id}`;
+    }
+    axios.get(url)
       .then((listing) => {
         this.setState({ listing: listing.data[0] });
       })

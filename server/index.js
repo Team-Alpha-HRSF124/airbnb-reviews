@@ -2,13 +2,14 @@
 const express = require('express');
 
 const app = express();
-const bodyParser = require('body-parser');
 const path = require('path');
 
 const port = 3000;
 const Controllers = require('./controllers.js');
 
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
+
+app.use('/listing/:id', express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/', (req, res) => {
   res.send('hello from server');
