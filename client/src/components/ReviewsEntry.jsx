@@ -21,7 +21,7 @@ const ReviewsEntry = ({
       {name}
     </dt>
     <dt>
-    <img src={image} />
+      <img src={image} alt="" />
     </dt>
     <dt>
       {moment(date).format('MMMM YYYY')}
@@ -34,7 +34,7 @@ const ReviewsEntry = ({
       {ownersName}
     </dt>
     <dt>
-      <img src={ownersImage} />
+      <img src={ownersImage} alt="" />
     </dt>
     <dt>
       {moment(ownersResponseDate).format('MMMM YYYY')}

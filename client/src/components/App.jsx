@@ -1,8 +1,10 @@
+/* eslint-disable import/extensions */
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import axios from 'axios';
 import Stats from './Stats.jsx';
 import Reviews from './Reviews.jsx';
+import Search from './Search.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -44,6 +46,7 @@ class App extends React.Component {
       <div>
         Stats:
         <Stats listing={listing} />
+        <Search />
         <Reviews reviews={reviews} />
       </div>
     );
