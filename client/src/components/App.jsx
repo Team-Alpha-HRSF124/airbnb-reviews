@@ -4,6 +4,7 @@ import React from 'react';
 import axios from 'axios';
 import Stats from './Stats.jsx';
 import Reviews from './Reviews.jsx';
+import Search from './Search.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,11 +25,11 @@ class App extends React.Component {
     const endpoint = window.location.pathname;
     let url = '';
     if (endpoint.length === 1) {
-      url = '/api/listing/1';
+      url = 'http://localhost:3000/api/listing/1';
     } else {
       const arr = endpoint.split('/');
       const id = arr[arr.length - 2];
-      url = `/api/listing/${id}`;
+      url = `http://localhost:3000/api/listing/${id}`;
     }
     axios.get(url)
       .then((results) => {
@@ -42,9 +43,10 @@ class App extends React.Component {
   render() {
     const { listing, reviews } = this.state;
     return (
-      <div>
+      <div className="components">
         Stats:
         <Stats listing={listing} />
+        <Search />
         <Reviews reviews={reviews} />
       </div>
     );
