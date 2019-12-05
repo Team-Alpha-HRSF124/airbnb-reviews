@@ -28,7 +28,7 @@ const Stats = ({
 }) => (
   <WrappReviews>
     <Reviews>Reviews</Reviews>
-    <IconContext.Provider value={{ color: 'green' }}>
+    <IconContext.Provider value={{ color: '#008489' }}>
       <li> <IoMdStar /> {avg_rating}</li>
     </IconContext.Provider>
       <li>ID: {id}</li>
