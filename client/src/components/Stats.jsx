@@ -2,6 +2,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { IoMdStar } from 'react-icons/io';
+import { IconContext } from 'react-icons';
 
 const WrappReviews = styled.ul`
   top:400px;
@@ -26,9 +28,11 @@ const Stats = ({
 }) => (
   <WrappReviews>
     <Reviews>Reviews</Reviews>
+    <IconContext.Provider value={{ color: 'green' }}>
+      <li> <IoMdStar /> {avg_rating}</li>
+    </IconContext.Provider>
       <li>ID: {id}</li>
       <li>Title: {title}</li>
-      <li>* {avg_rating}</li>
       <li>{counts} Reviews</li>
       <li>communication: {communication}</li>
       <li>cleanliness: {cleanliness}</li>
