@@ -1,6 +1,22 @@
 /* eslint-disable camelcase */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import styled, { css } from 'styled-components';
+
+const WrappReviews = styled.ul`
+  top:400px;
+  padding-top:20px;
+`;
+
+const Reviews = styled.h2`
+font-family: 'Varela Round', sans-serif;
+size: 24px;
+color: #484848; 
+`;
+
+const Items = styled.span`
+  flex-grow: 2;
+`;
 
 const Stats = ({
   listing: {
@@ -8,19 +24,20 @@ const Stats = ({
     hospitality, stylish, sparkling_clean, quick_responses, amazing_amenities, counts,
   },
 }) => (
-  <ul>
-    <li>ID: {id}</li>
-    <li>Title: {title}</li>
-    <li>* {avg_rating}</li>
-    <li>{counts} Reviews</li>
-    <li>communication: {communication}</li>
-    <li>cleanliness: {cleanliness}</li>
-    <li>hospitality: {hospitality}</li>
-    <li>stylish: {stylish}</li>
-    <li>sparkling clean: {sparkling_clean}</li>
-    <li>quick responses: {quick_responses}</li>
-    <li>amazing amenities: {amazing_amenities}</li>
-  </ul>
+  <WrappReviews>
+    <Reviews>Reviews</Reviews>
+      <li>ID: {id}</li>
+      <li>Title: {title}</li>
+      <li>* {avg_rating}</li>
+      <li>{counts} Reviews</li>
+      <li>communication: {communication}</li>
+      <li>cleanliness: {cleanliness}</li>
+      <li>hospitality: {hospitality}</li>
+      <li>stylish: {stylish}</li>
+      <li>sparkling clean: {sparkling_clean}</li>
+      <li>quick responses: {quick_responses}</li>
+      <li>amazing amenities: {amazing_amenities}</li>
+  </WrappReviews>
 );
 
 export default Stats;
