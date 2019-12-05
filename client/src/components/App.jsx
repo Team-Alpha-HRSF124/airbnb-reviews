@@ -43,7 +43,7 @@ class App extends React.Component {
   render() {
     const { listing, reviews } = this.state;
     return (
-      <div>
+      <div className="components">
         Stats:
         <Stats listing={listing} />
         <Search />
