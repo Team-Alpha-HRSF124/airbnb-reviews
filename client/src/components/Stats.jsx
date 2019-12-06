@@ -46,7 +46,7 @@ box-shadow: 0 0 3px #ccc;
 `;
 
 const MidLine = styled.div`
-border-bottom: 1px solid #BEBEBE;
+border-bottom: 1px solid rgb(235, 235, 235);
 `;
 
 const InnerContainer = styled.div`

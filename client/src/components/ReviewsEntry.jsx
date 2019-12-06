@@ -34,19 +34,26 @@ const ReviewsEntry = ({
     <dt>
       {review}
     </dt>
-    <dt>
-      Owner:
-      {ownersName}
-    </dt>
-    <dt>
-      <img src={ownersImage} alt="" />
-    </dt>
-    <dt>
-      {moment(ownersResponseDate).format('MMMM YYYY')}
-    </dt>
-    <dt>
-      {response}
-    </dt>
+    {ownersName
+      ?
+      (
+        <dl>
+          <dt>
+            Response from:
+            &nbsp;
+            {ownersName}
+          </dt>
+          <dt>
+            <Crop src={ownersImage} width="34" height="34" alt="" />
+          </dt>
+          <dt>
+            {moment(ownersResponseDate).format('MMMM YYYY')}
+          </dt>
+          <dt>
+            {response}
+          </dt>
+        </dl>
+      ) : null}
   </dl>
 );
 
