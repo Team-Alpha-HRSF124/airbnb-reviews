@@ -5,8 +5,62 @@ import styled from 'styled-components';
 
 const moment = require('moment');
 
+const Wrapper = styled.div`
+  display: grid;
+  width: 600px;
+`;
+
 const Crop = styled.img`
   border-radius: 50%;
+`;
+
+const User = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  width: 350px
+`;
+
+const NameDate = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 50px;
+`;
+
+const Review = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr;
+  border-bottom: 1px solid rgb(235, 235, 235);
+  padding: 9px;
+`;
+
+const OwnersRes = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+`;
+
+const DateFont = styled.span`
+  font-family: 'Varela Round', sans-serif;
+  font-weight: regular;
+  size: 10px;
+  color: #484848;
+`;
+
+const NameReviewFont = styled.span`
+  font-family: 'Varela Round', sans-serif;
+  font-weight: semi-bold;
+  size: 16px;
+  color: #484848; 
+`;
+
+const OwnersResFont = styled.div`
+  font-family: 'Varela Round', sans-serif;
+  font-weight: light;
+  size: 12px;
+  color: #484848; 
 `;
 
 const ReviewsEntry = ({
@@ -21,40 +75,61 @@ const ReviewsEntry = ({
     response,
   },
 }) => (
+  <Wrapper>
   <dl>
-    <dt>
-      {name}
-    </dt>
-    <dt>
+    <User>
+    <div>
       <Crop src={image} width="50" height="50" alt="" />
-    </dt>
-    <dt>
+    </div>
+    <NameDate>
+    <div>
+      <NameReviewFont>
+      {name}
+    </NameReviewFont>
+    </div>
+    <div>
+      <DateFont>
       {moment(date).format('MMMM YYYY')}
-    </dt>
-    <dt>
-      {review}
-    </dt>
-    {ownersName
-      ?
-      (
-        <dl>
-          <dt>
-            Response from:
-            &nbsp;
-            {ownersName}
-          </dt>
-          <dt>
-            <Crop src={ownersImage} width="34" height="34" alt="" />
-          </dt>
-          <dt>
-            {moment(ownersResponseDate).format('MMMM YYYY')}
-          </dt>
-          <dt>
-            {response}
-          </dt>
-        </dl>
-      ) : null}
+      </DateFont>
+    </div>
+    </NameDate>
+    </User>
+    <Review>
+      <div>
+        <NameReviewFont>
+        {review}
+        </NameReviewFont>
+      </div>
+      {ownersName
+        ?
+        (<OwnersRes>
+          <div>
+            <dt>
+              <Crop src={ownersImage} width="34" height="34" alt="" />
+            </dt>
+            <dt>
+              <OwnersResFont>
+              Response from:
+              &nbsp;
+              {ownersName}
+              </OwnersResFont>
+            </dt>
+            <dt>
+              <NameReviewFont>
+              {response}
+              </NameReviewFont>
+            </dt>
+            <dt>
+            <DateFont>
+              {moment(ownersResponseDate).format('MMMM YYYY')}
+              </DateFont>
+            </dt>
+          </div>
+      </OwnersRes>)
+        : null}
+    </Review>
   </dl>
+  </Wrapper>
 );
 
 export default ReviewsEntry;

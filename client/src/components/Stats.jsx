@@ -11,52 +11,56 @@ const WrappReviews = styled.ul`
 `;
 
 const Reviews = styled.h2`
-font-family: 'Varela Round', sans-serif;
-size: 24px;
-color: #484848; 
+  font-family: 'Varela Round', sans-serif;
+  size: 24px;
+  color: #484848; 
 `;
 
 const NumFont = styled.span`
-font-family: 'Varela Round', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-weight: bold;
 size: 14px;
 color: #484848; 
 `;
 
 const ReviewsHeader = styled.div`
-display: grid;
-grid-template-columns: repeat(6, 1fr);
-grid-template-rows: 1fr;
-grid-column-gap: 20px
-grid-row-gap: 20px
-justify-items: stretch
-align-items: start
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 20px
+  grid-row-gap: 20px
+  justify-items: stretch
+  align-items: start
+  font-family: 'Varela Round', sans-serif;
+  font-weight: light;
+  color: #484848;
 `;
 
 const OuterContainer = styled.div`
-display: grid;
-width: 600px;
-height: 200px;
-grid-template-rows: 49% 2% 49%;
-padding: 10px;
-border: 1px solid #ededed;
-border-radius: 10px;
--moz-box-shadow: 0 0 3px #ccc;
--webkit-box-shadow: 0 0 3px #ccc;
-box-shadow: 0 0 3px #ccc;
+  display: grid;
+  width: 600px;
+  height: 200px;
+  grid-template-rows: 49% 2% 49%;
+  padding: 10px;
+  border: 1px solid #ededed;
+  border-radius: 10px;
+  -moz-box-shadow: 0 0 3px #ccc;
+  -webkit-box-shadow: 0 0 3px #ccc;
+  box-shadow: 0 0 3px #ccc;
 `;
 
 const MidLine = styled.div`
-border-bottom: 1px solid rgb(235, 235, 235);
+  border-bottom: 1px solid rgb(235, 235, 235);
 `;
 
 const InnerContainer = styled.div`
-display: grid;
-grid-template-columns: 1fr 1fr;
-grid-template-rows: 1fr 1fr 1fr;
-font-family: 'Varela Round', sans-serif;
-padding: 10px;
-size: 18px;
-color: #484848; 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  font-family: 'Varela Round', sans-serif;
+  padding: 10px;
+  size: 18px;
+  color: #484848; 
 `;
 
 const Stats = ({
@@ -77,13 +81,13 @@ const Stats = ({
           </NumFont>
         </div>
         <div>
-          <NumFont>
             <div>
+          <NumFont>
               {counts}
               &nbsp;
+          </NumFont>
                 Reviews
             </div>
-          </NumFont>
         </div>
       </ReviewsHeader>
     </IconContext.Provider>
