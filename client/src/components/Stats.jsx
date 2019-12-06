@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { IoMdStar } from 'react-icons/io';
 import { IconContext } from 'react-icons';
 
@@ -16,6 +16,14 @@ size: 24px;
 color: #484848; 
 `;
 
+const ReviewsHeader = styled.div`
+  display: grid;
+  grid-template-columns: .5fr .5fr 4fr;
+  grid-auto-rows: 35px;
+  border: #333 1px solid;
+  border-radius: 10px;
+`;
+
 const Items = styled.span`
   flex-grow: 2;
 `;
@@ -23,24 +31,38 @@ const Items = styled.span`
 const Stats = ({
   listing: {
     id, title, avg_rating, communication, cleanliness,
-    hospitality, stylish, sparkling_clean, quick_responses, amazing_amenities, counts,
+    hospitality, stylish, sparkling_clean, quick_responses, amazing_amenities, counts, check_in, accuracy, value, location,
   },
 }) => (
   <WrappReviews>
     <Reviews>Reviews</Reviews>
     <IconContext.Provider value={{ color: '#008489' }}>
-      <li> <IoMdStar /> {avg_rating}</li>
+      <ReviewsHeader>
+        <div>
+          <IoMdStar />
+          {avg_rating}
+        </div>
+        <div>
+          <div>
+            {counts}
+            Reviews
+          </div>
+        </div>
+      </ReviewsHeader>
     </IconContext.Provider>
-      <li>ID: {id}</li>
-      <li>Title: {title}</li>
-      <li>{counts} Reviews</li>
-      <li>communication: {communication}</li>
-      <li>cleanliness: {cleanliness}</li>
-      <li>hospitality: {hospitality}</li>
-      <li>stylish: {stylish}</li>
-      <li>sparkling clean: {sparkling_clean}</li>
-      <li>quick responses: {quick_responses}</li>
-      <li>amazing amenities: {amazing_amenities}</li>
+      <div>ID: {id}</div>
+      <div>Title: {title}</div>
+      <div>check-in: {check_in}</div>
+      <div>accuracy: {accuracy}</div>
+      <div>communication: {communication}</div>
+      <div>cleanliness: {cleanliness}</div>
+      <div>location: {location}</div>
+      <div>value: {value}</div>
+      <div>hospitality: {hospitality}</div>
+      <div>stylish: {stylish}</div>
+      <div>sparkling clean: {sparkling_clean}</div>
+      <div>quick responses: {quick_responses}</div>
+      <div>amazing amenities: {amazing_amenities}</div>
   </WrappReviews>
 );
 
