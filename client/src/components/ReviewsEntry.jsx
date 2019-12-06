@@ -1,8 +1,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable camelcase */
 import React from 'react';
+import styled from 'styled-components';
 
 const moment = require('moment');
+
+const Crop = styled.img`
+  border-radius: 50%;
+`;
 
 const ReviewsEntry = ({
   review: {
@@ -21,7 +26,7 @@ const ReviewsEntry = ({
       {name}
     </dt>
     <dt>
-      <img src={image} alt="" />
+      <Crop src={image} width="50" height="50" alt="" />
     </dt>
     <dt>
       {moment(date).format('MMMM YYYY')}
