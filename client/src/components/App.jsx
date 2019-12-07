@@ -91,27 +91,37 @@ class App extends React.Component {
       const nextStart = start + 7;
       const nextEnd = end + 7;
       const renderedReviews = reviews.slice(nextStart, nextEnd);
+      let showNext = true;
+      if (nextEnd >= max) {
+        showNext = false;
+      }
       this.setState({
         start: nextStart,
         end: nextEnd,
         renderedReviews,
+        showNext,
         showBack: true,
       });
-    } else {
-      this.setState({ showNext: false });
     }
   }
 
   pervPage() {
     const { reviews, start, end } = this.state;
     let showBack = true;
+    const showNext = true;
     const prevStart = start - 7;
     const prevEnd = end - 7;
     if (prevStart === 0) {
       showBack = false;
     }
     const renderedReviews = reviews.slice(prevStart, prevEnd);
-    this.setState({ renderedReviews, showBack });
+    this.setState({
+      renderedReviews,
+      showBack,
+      showNext,
+      start: prevStart,
+      end: prevEnd,
+    });
   }
 
   render() {
