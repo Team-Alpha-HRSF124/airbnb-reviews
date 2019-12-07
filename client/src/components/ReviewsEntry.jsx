@@ -46,13 +46,20 @@ const OwnersRes = styled.div`
 const DateFont = styled.span`
   font-family: 'Montserrat', sans-serif;
   font-weight: regular;
-  size: 10px;
+  size: 8px;
   color: #484848;
 `;
 
-const NameReviewFont = styled.span`
+const NameFont = styled.span`
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
+  size: 16px;
+  color: #484848; 
+`;
+
+const ReviewFont = styled.span`
+  font-family: 'Montserrat', sans-serif;
+  font-weight: regular;
   size: 16px;
   color: #484848; 
 `;
@@ -85,9 +92,9 @@ const ReviewsEntry = ({
         </div>
         <NameDate>
           <div>
-            <NameReviewFont>
+            <NameFont>
               {name}
-            </NameReviewFont>
+            </NameFont>
           </div>
           <div>
             <DateFont>
@@ -97,6 +104,7 @@ const ReviewsEntry = ({
           </NameDate>
         </User>
         <Review>
+            <ReviewFont>
           <div>
             <ShowMoreText
               lines={3}
@@ -104,11 +112,10 @@ const ReviewsEntry = ({
               anchorClass=''
               expanded={false}
             >
-              <NameReviewFont>
                 {review}
-              </NameReviewFont>
             </ShowMoreText>
           </div>
+              </ReviewFont>
           {ownersName
             ?
             (
@@ -121,13 +128,15 @@ const ReviewsEntry = ({
                     <OwnersResFont>
                       Response from:
                       &nbsp;
-              <NameReviewFont>
+              <NameFont>
                         {ownersName}
-                      </NameReviewFont>
+                      </NameFont>
                     </OwnersResFont>
                   </dt>
                   <dt>
+                    <ReviewFont>
                     {response}
+                    </ReviewFont>
                   </dt>
                   <dt>
                     <DateFont>
