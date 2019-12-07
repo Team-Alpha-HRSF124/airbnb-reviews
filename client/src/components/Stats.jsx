@@ -4,6 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { IoMdStar } from 'react-icons/io';
 import { IconContext } from 'react-icons';
+import { GiSofa } from 'react-icons/gi';
 
 const WrappReviews = styled.ul`
   top:400px;
@@ -20,7 +21,7 @@ const NumFont = styled.span`
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   size: 14px;
-  color: #484848; 
+  color: #484848;
 `;
 
 const ReviewsHeader = styled.div`
@@ -102,11 +103,11 @@ const Stats = ({
       </InnerContainer>
       <MidLine />
       <InnerContainer>
-        <div>Hospitality: {hospitality}</div>
-        <div>Stylish space: {stylish}</div>
-        <div>Sparkling clean: {sparkling_clean}</div>
-        <div>Quick responses: {quick_responses}</div>
-        <div>Amazing amenities: {amazing_amenities}</div>
+        <div>Stylish space 🛋 {stylish}</div>
+        <div>Quick responses 💬 {quick_responses}</div>
+        <div>Sparkling clean 🛁 {sparkling_clean}</div>
+        <div>Amazing amenities ☕️ {amazing_amenities}</div>
+        <div>Outstanding hospitality ♥️ {hospitality}</div>
       </InnerContainer>
     </OuterContainer>
   </WrappReviews>
