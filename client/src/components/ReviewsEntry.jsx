@@ -29,10 +29,6 @@ const NameDate = styled.div`
   height: 50px;
 `;
 
-const ShowMoreColor = styled.div`
-  color: #008489;
-`;
-
 const Review = styled.div`
   display: grid;
   grid-template-columns: 1fr;
@@ -48,21 +44,21 @@ const OwnersRes = styled.div`
 `;
 
 const DateFont = styled.span`
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: regular;
   size: 10px;
   color: #484848;
 `;
 
 const NameReviewFont = styled.span`
-  font-family: 'Varela Round', sans-serif;
-  font-weight: semi-bold;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
   size: 16px;
   color: #484848; 
 `;
 
 const OwnersResFont = styled.div`
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: light;
   size: 12px;
   color: #484848; 
@@ -82,68 +78,69 @@ const ReviewsEntry = ({
   },
 }) => (
   <Wrapper>
-  <dl>
-    <User>
-    <div>
-      <Crop src={image} width="50" height="50" alt="" />
-    </div>
-    <NameDate>
-    <div>
-      <NameReviewFont>
-      {name}
-    </NameReviewFont>
-    </div>
-    <div>
-      <DateFont>
-      {moment(date).format('MMMM YYYY')}
-      </DateFont>
-    </div>
-    </NameDate>
-    </User>
-    <Review>
-      <div>
-      <ShowMoreText
-        lines={3}
-        more='Read more'
-        anchorClass=''
-        expanded={false}
-        >
-        <NameReviewFont>
-        {review}
-        </NameReviewFont>
-        </ShowMoreText>
-      </div>
-      {ownersName
-        ?
-        (<OwnersRes>
+    <dl>
+      <User>
+        <div>
+          <Crop src={image} width="50" height="50" alt="" />
+        </div>
+        <NameDate>
           <div>
-            <dt>
-              <Crop src={ownersImage} width="34" height="34" alt="" />
-            </dt>
-            <dt>
-              <OwnersResFont>
-              Response from:
-              &nbsp;
-              <NameReviewFont>
-              {ownersName}
-              </NameReviewFont>
-              </OwnersResFont>
-            </dt>
-            <dt>
-              {response}
-            </dt>
-            <dt>
-            <DateFont>
-              {moment(ownersResponseDate).format('MMMM YYYY')}
-              </DateFont>
-            </dt>
+            <NameReviewFont>
+              {name}
+            </NameReviewFont>
           </div>
-      </OwnersRes>)
-        : null}
-    </Review>
-  </dl>
-  </Wrapper>
-);
+          <div>
+            <DateFont>
+              {moment(date).format('MMMM YYYY')}
+            </DateFont>
+          </div>
+          </NameDate>
+        </User>
+        <Review>
+          <div>
+            <ShowMoreText
+              lines={3}
+              more='Read more'
+              anchorClass=''
+              expanded={false}
+            >
+              <NameReviewFont>
+                {review}
+              </NameReviewFont>
+            </ShowMoreText>
+          </div>
+          {ownersName
+            ?
+            (
+              <OwnersRes>
+                <div>
+                  <dt>
+                    <Crop src={ownersImage} width="34" height="34" alt="" />
+                  </dt>
+                  <dt>
+                    <OwnersResFont>
+                      Response from:
+                      &nbsp;
+              <NameReviewFont>
+                        {ownersName}
+                      </NameReviewFont>
+                    </OwnersResFont>
+                  </dt>
+                  <dt>
+                    {response}
+                  </dt>
+                  <dt>
+                    <DateFont>
+                      {moment(ownersResponseDate).format('MMMM YYYY')}
+                    </DateFont>
+                  </dt>
+                </div>
+              </OwnersRes>)
+            : null}
+        </Review>
+      </dl>
+    </Wrapper>
+  );
 
 export default ReviewsEntry;
 
