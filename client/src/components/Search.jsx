@@ -54,9 +54,7 @@ class Search extends React.Component {
       <Wrapper onSubmit={this.handleSubmit}>
         <input type="text" name="name" placeholder="Search review" onChange={this.handleChange} value={value} />
         <Icon>
-          <MdSearch>
-            <input type="submit" value="" />
-          </MdSearch>
+          <button type="submit" aria-label="search" value=""><MdSearch /></button>
         </Icon>
       </Wrapper>
     );
