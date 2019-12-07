@@ -101,134 +101,54 @@ const ReviewsEntry = ({
               {moment(date).format('MMMM YYYY')}
             </DateFont>
           </div>
-          </NameDate>
-        </User>
-        <Review>
-            <ReviewFont>
+        </NameDate>
+      </User>
+      <Review>
+        <ReviewFont>
           <div>
             <ShowMoreText
               lines={3}
-              more='Read more'
-              anchorClass=''
+              more="Read more"
               expanded={false}
             >
-                {review}
+              {review}
             </ShowMoreText>
           </div>
-              </ReviewFont>
-          {ownersName
-            ?
-            (
-              <OwnersRes>
-                <div>
-                  <dt>
-                    <Crop src={ownersImage} width="34" height="34" alt="" />
-                  </dt>
-                  <dt>
-                    <OwnersResFont>
-                      Response from:
-                      &nbsp;
-              <NameFont>
-                        {ownersName}
-                      </NameFont>
-                    </OwnersResFont>
-                  </dt>
-                  <dt>
-                    <ReviewFont>
+        </ReviewFont>
+        {ownersName
+          ?
+          (
+            <OwnersRes>
+              <div>
+                <dt>
+                  <Crop src={ownersImage} width="34" height="34" alt="" />
+                </dt>
+                <dt>
+                  <OwnersResFont>
+                    Response from:
+                    &nbsp;
+                    <NameFont>
+                      {ownersName}
+                    </NameFont>
+                  </OwnersResFont>
+                </dt>
+                <dt>
+                  <ReviewFont>
                     {response}
-                    </ReviewFont>
-                  </dt>
-                  <dt>
-                    <DateFont>
-                      {moment(ownersResponseDate).format('MMMM YYYY')}
-                    </DateFont>
-                  </dt>
-                </div>
-              </OwnersRes>)
-            : null}
-        </Review>
-      </dl>
-    </Wrapper>
-  );
+                  </ReviewFont>
+                </dt>
+                <dt>
+                  <DateFont>
+                    {moment(ownersResponseDate).format('MMMM YYYY')}
+                  </DateFont>
+                </dt>
+              </div>
+            </OwnersRes>
+          )
+          : null}
+      </Review>
+    </dl>
+  </Wrapper>
+);
 
 export default ReviewsEntry;
-
-// class ReviewsEntry extends React.Component {
-//   constructor(props) {
-//     super(props);
-
-//     this.executeOnClick = this.executeOnClick.bind(this);
-//   }
-
-//   executeOnClick(isExpanded) {
-//     console.log(isExpanded);
-//   }
-
-//   render() {
-//     return(
-// <Wrapper>
-//   <dl>
-//     <User>
-//     <div>
-//       <Crop src={this.props.review.image} width="50" height="50" alt="" />
-//     </div>
-//     <NameDate>
-//     <div>
-//       <NameReviewFont>
-//       {this.props.review.name}
-//     </NameReviewFont>
-//     </div>
-//     <div>
-//       <DateFont>
-//       {moment(this.props.review.date).format('MMMM YYYY')}
-//       </DateFont>
-//     </div>
-//     </NameDate>
-//     </User>
-//     <Review>
-//       <div>
-//       <ShowMoreText
-//         lines={3}
-//         more='Show more'
-//         less='Show less'
-//         anchorClass=''
-//         onClick={this.executeOnClick}
-//         expanded={false}
-//             >
-//         <NameReviewFont>
-//         {this.props.review.review}
-//         </NameReviewFont>
-//         </ShowMoreText>
-//       </div>
-//       {this.props.review.ownersName
-//         ?
-//         (<OwnersRes>
-//           <div>
-//             <dt>
-//               <Crop src={this.props.review.ownersImage} width="34" height="34" alt="" />
-//             </dt>
-//             <dt>
-//               <OwnersResFont>
-//               Response from:
-//               &nbsp;
-//               {this.props.review.ownersName}
-//               </OwnersResFont>
-//             </dt>
-//             <dt>
-//               <NameReviewFont></NameReviewFont>
-//               {this.props.review.response}
-//             </dt>
-//             <dt>
-//             <DateFont>
-//               {moment(this.props.review.ownersResponseDate).format('MMMM YYYY')}
-//               </DateFont>
-//             </dt>
-//           </div>
-//       </OwnersRes>)
-//         : null}
-//     </Review>
-//   </dl>
-//   </Wrapper>
-//     )
-//   }
-// }
