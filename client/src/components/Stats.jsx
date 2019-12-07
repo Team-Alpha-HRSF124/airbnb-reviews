@@ -4,7 +4,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { IoMdStar } from 'react-icons/io';
 import { IconContext } from 'react-icons';
-import { GiSofa } from 'react-icons/gi';
 
 const WrappReviews = styled.ul`
   top:400px;

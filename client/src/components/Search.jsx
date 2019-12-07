@@ -12,15 +12,14 @@ color: #c0c0c0;
 
 const Wrapper = styled.form`
   display: grid;
-  grid-template-columns: 2fr;
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr;
-  width: 350px;
-  height: 10px;
-  solid #ededed;
+  width: 325px;
+  height: 20px;
+  margin-left: 40px;
+  padding: 5px;
+  border: 1px solid #ededed;
   border-radius: 5px;
-  -moz-box-shadow: 0 0 3px #ccc;
-  -webkit-box-shadow: 0 0 3px #ccc;
-  box-shadow: 0 0 3px #ccc;
 `;
 
 class Search extends React.Component {
@@ -52,9 +51,9 @@ class Search extends React.Component {
     const { value } = this.state;
     return (
       <Wrapper onSubmit={this.handleSubmit}>
-        <input type="text" name="name" placeholder="Search review" onChange={this.handleChange} value={value} />
+        <input type="text" style={{ width: '300px', border: 'none' }} name="name" placeholder="Search review" onChange={this.handleChange} value={value} />
         <Icon>
-          <button type="submit" aria-label="search" value=""><MdSearch /></button>
+          <button style={{ border: 'none' }} type="submit" aria-label="search" value=""><MdSearch /></button>
         </Icon>
       </Wrapper>
     );
