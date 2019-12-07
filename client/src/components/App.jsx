@@ -13,11 +13,15 @@ class App extends React.Component {
     this.state = {
       listing: {},
       reviews: [],
+      renderedReviews: [],
       serchedTerm: '',
+      start: 0,
+      end: 7,
     };
     this.getListing = this.getListing.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.filterBySearchedTerm = this.filterBySearchedTerm.bind(this);
+    this.nextPage = this.nextPage.bind(this);
   }
 
   componentDidMount() {
@@ -36,7 +40,11 @@ class App extends React.Component {
     }
     axios.get(url)
       .then((results) => {
-        this.setState({ listing: results.data.stats[0], reviews: results.data.reviews });
+        this.setState({
+          listing: results.data.stats[0],
+          reviews: results.data.reviews,
+          renderedReviews: results.data.reviews.slice(0, 7),
+        });
       })
       .catch((err) => {
         throw (err);
@@ -48,7 +56,7 @@ class App extends React.Component {
   }
 
   filterBySearchedTerm() {
-    const { reviews, searchedTerm } = this.state;
+    const { reviews, searchedTerm, renderedReviews } = this.state;
     if (searchedTerm) {
       const searchedReviewsArr = [];
       for (let i = 0; i < reviews.length; i += 1) {
@@ -61,7 +69,23 @@ class App extends React.Component {
       }
       return searchedReviewsArr;
     }
-    return reviews;
+    return renderedReviews;
+  }
+
+  nextPage() {
+    const { reviews, start, end } = this.state;
+    const totalPage = Math.ceil(reviews.length / 7);
+    const max = totalPage * 7;
+    if (start < max) {
+      const nextStart = start + 7;
+      const nextEnd = end + 7;
+      const renderedReviews = reviews.slice(nextStart, nextEnd);
+      this.setState({
+        start: nextStart,
+        end: nextEnd,
+        renderedReviews,
+      });
+    }
   }
 
   render() {
@@ -71,6 +95,7 @@ class App extends React.Component {
         <Stats listing={listing} />
         <Search handleSearch={this.handleSearch} />
         <Reviews reviews={this.filterBySearchedTerm()} />
+        <button type="button" onClick={this.nextPage}>Next</button>
       </div>
     );
   }
