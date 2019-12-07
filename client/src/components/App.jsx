@@ -17,11 +17,15 @@ class App extends React.Component {
       serchedTerm: '',
       start: 0,
       end: 7,
+      max: 0,
+      showBack: false,
+      showNext: true,
     };
     this.getListing = this.getListing.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.filterBySearchedTerm = this.filterBySearchedTerm.bind(this);
     this.nextPage = this.nextPage.bind(this);
+    this.pervPage = this.pervPage.bind(this);
   }
 
   componentDidMount() {
@@ -40,10 +44,19 @@ class App extends React.Component {
     }
     axios.get(url)
       .then((results) => {
+        const reviewsLength = results.data.reviews.length;
+        const totalPage = Math.ceil(reviewsLength / 7);
+        const max = totalPage * 7;
+        let showNext = true;
+        if (reviewsLength < 7) {
+          showNext = false;
+        }
         this.setState({
           listing: results.data.stats[0],
           reviews: results.data.reviews,
           renderedReviews: results.data.reviews.slice(0, 7),
+          max,
+          showNext,
         });
       })
       .catch((err) => {
@@ -73,9 +86,7 @@ class App extends React.Component {
   }
 
   nextPage() {
-    const { reviews, start, end } = this.state;
-    const totalPage = Math.ceil(reviews.length / 7);
-    const max = totalPage * 7;
+    const { reviews, start, end, max } = this.state;
     if (start < max) {
       const nextStart = start + 7;
       const nextEnd = end + 7;
@@ -84,18 +95,34 @@ class App extends React.Component {
         start: nextStart,
         end: nextEnd,
         renderedReviews,
+        showBack: true,
       });
+    } else {
+      this.setState({ showNext: false });
     }
   }
 
+  pervPage() {
+    const { reviews, start, end } = this.state;
+    let showBack = true;
+    const prevStart = start - 7;
+    const prevEnd = end - 7;
+    if (prevStart === 0) {
+      showBack = false;
+    }
+    const renderedReviews = reviews.slice(prevStart, prevEnd);
+    this.setState({ renderedReviews, showBack });
+  }
+
   render() {
-    const { listing } = this.state;
+    const { listing, showBack, showNext } = this.state;
     return (
       <div>
         <Stats listing={listing} />
         <Search handleSearch={this.handleSearch} />
         <Reviews reviews={this.filterBySearchedTerm()} />
-        <button type="button" onClick={this.nextPage}>Next</button>
+        {showBack ? <button type="button" onClick={this.pervPage}>Back</button> : null}
+        {showNext ? <button type="button" onClick={this.nextPage}>Next</button> : null}
       </div>
     );
   }
