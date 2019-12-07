@@ -17,10 +17,10 @@ const Reviews = styled.h2`
 `;
 
 const NumFont = styled.span`
-font-family: 'Montserrat', sans-serif;
-font-weight: bold;
-size: 14px;
-color: #484848; 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  size: 14px;
+  color: #484848; 
 `;
 
 const ReviewsHeader = styled.div`

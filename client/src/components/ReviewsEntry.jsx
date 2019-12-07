@@ -2,6 +2,7 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import styled from 'styled-components';
+import ShowMoreText from 'react-show-more-text';
 
 const moment = require('moment');
 
@@ -26,6 +27,10 @@ const NameDate = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
   height: 50px;
+`;
+
+const ShowMoreColor = styled.div`
+  color: #008489;
 `;
 
 const Review = styled.div`
@@ -63,6 +68,7 @@ const OwnersResFont = styled.div`
   color: #484848; 
 `;
 
+
 const ReviewsEntry = ({
   review: {
     name,
@@ -96,9 +102,16 @@ const ReviewsEntry = ({
     </User>
     <Review>
       <div>
+      <ShowMoreText
+        lines={3}
+        more='Read more'
+        anchorClass=''
+        expanded={false}
+        >
         <NameReviewFont>
         {review}
         </NameReviewFont>
+        </ShowMoreText>
       </div>
       {ownersName
         ?
@@ -111,13 +124,13 @@ const ReviewsEntry = ({
               <OwnersResFont>
               Response from:
               &nbsp;
+              <NameReviewFont>
               {ownersName}
+              </NameReviewFont>
               </OwnersResFont>
             </dt>
             <dt>
-              <NameReviewFont>
               {response}
-              </NameReviewFont>
             </dt>
             <dt>
             <DateFont>
@@ -133,3 +146,83 @@ const ReviewsEntry = ({
 );
 
 export default ReviewsEntry;
+
+// class ReviewsEntry extends React.Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.executeOnClick = this.executeOnClick.bind(this);
+//   }
+
+//   executeOnClick(isExpanded) {
+//     console.log(isExpanded);
+//   }
+
+//   render() {
+//     return(
+// <Wrapper>
+//   <dl>
+//     <User>
+//     <div>
+//       <Crop src={this.props.review.image} width="50" height="50" alt="" />
+//     </div>
+//     <NameDate>
+//     <div>
+//       <NameReviewFont>
+//       {this.props.review.name}
+//     </NameReviewFont>
+//     </div>
+//     <div>
+//       <DateFont>
+//       {moment(this.props.review.date).format('MMMM YYYY')}
+//       </DateFont>
+//     </div>
+//     </NameDate>
+//     </User>
+//     <Review>
+//       <div>
+//       <ShowMoreText
+//         lines={3}
+//         more='Show more'
+//         less='Show less'
+//         anchorClass=''
+//         onClick={this.executeOnClick}
+//         expanded={false}
+//             >
+//         <NameReviewFont>
+//         {this.props.review.review}
+//         </NameReviewFont>
+//         </ShowMoreText>
+//       </div>
+//       {this.props.review.ownersName
+//         ?
+//         (<OwnersRes>
+//           <div>
+//             <dt>
+//               <Crop src={this.props.review.ownersImage} width="34" height="34" alt="" />
+//             </dt>
+//             <dt>
+//               <OwnersResFont>
+//               Response from:
+//               &nbsp;
+//               {this.props.review.ownersName}
+//               </OwnersResFont>
+//             </dt>
+//             <dt>
+//               <NameReviewFont></NameReviewFont>
+//               {this.props.review.response}
+//             </dt>
+//             <dt>
+//             <DateFont>
+//               {moment(this.props.review.ownersResponseDate).format('MMMM YYYY')}
+//               </DateFont>
+//             </dt>
+//           </div>
+//       </OwnersRes>)
+//         : null}
+//     </Review>
+//   </dl>
+//   </Wrapper>
+//     )
+//   }
+// }
