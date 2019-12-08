@@ -39,9 +39,12 @@ const Review = styled.div`
 
 const OwnersRes = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 3% 97%;
+  padding: 10px;
   grid-template-rows: 1fr;
 `;
+
+const Blank = styled.div``;
 
 const DateFont = styled.span`
   font-family: 'Montserrat', sans-serif;
@@ -66,7 +69,7 @@ const ReviewFont = styled.span`
 
 const OwnersResFont = styled.div`
   font-family: 'Montserrat', sans-serif;
-  font-weight: light;
+  font-weight: semi-bold;
   size: 12px;
   color: #484848; 
 `;
@@ -119,6 +122,7 @@ const ReviewsEntry = ({
           ?
           (
             <OwnersRes>
+              <Blank />
               <div>
                 <dt>
                   <Crop src={ownersImage} width="34" height="34" alt="" />
