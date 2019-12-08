@@ -11,7 +11,7 @@ const WrappReviews = styled.ul`
 `;
 
 const Reviews = styled.h2`
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   size: 24px;
   color: #484848; 
 `;
@@ -31,7 +31,7 @@ const ReviewsHeader = styled.div`
   grid-row-gap: 20px
   justify-items: stretch
   align-items: start
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: light;
   color: #484848;
 `;
@@ -55,9 +55,9 @@ const MidLine = styled.div`
 
 const InnerContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 12% 1fr 12%;
   grid-template-rows: 1fr 1fr 1fr;
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   padding: 10px;
   size: 18px;
   color: #484848; 
@@ -93,20 +93,98 @@ const Stats = ({
     </IconContext.Provider>
     <OuterContainer>
       <InnerContainer>
-        <div>Check-in: {check_in}</div>
-        <div>Accuracy: {accuracy}</div>
-        <div>Communication: {communication}</div>
-        <div>Cleanliness: {cleanliness}</div>
-        <div>Location: {location}</div>
-        <div>Value: {value}</div>
+        <div>Check-in </div>
+        <div>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <NumFont>
+            {check_in}
+          </NumFont>
+        </div>
+        <div>Accuracy </div>
+        <div>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <NumFont>
+            {accuracy}
+          </NumFont>
+          </div>
+        <div>Communication </div>
+        <div>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <NumFont>
+            {communication}
+          </NumFont>
+        </div>
+        <div>Cleanliness </div>
+        <div>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <NumFont>
+            {cleanliness}
+          </NumFont>
+        </div>
+        <div>Location </div>
+        <div>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <NumFont>
+            {location}
+          </NumFont>
+        </div>
+        <div>Value </div>
+        <div>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <NumFont>
+            {value}
+          </NumFont>
+        </div>
       </InnerContainer>
       <MidLine />
       <InnerContainer>
-        <div>Stylish space 🛋 {stylish}</div>
-        <div>Quick responses 💬 {quick_responses}</div>
-        <div>Sparkling clean 🛁 {sparkling_clean}</div>
-        <div>Amazing amenities ☕️ {amazing_amenities}</div>
-        <div>Outstanding hospitality ♥️ {hospitality}</div>
+        <div>Stylish space </div>
+        <div>
+            🛋
+          <NumFont>
+            {stylish}
+          </NumFont>
+        </div>
+        <div>Quick responses </div>
+        <div>
+           💬
+          <NumFont>
+            {quick_responses}
+          </NumFont>
+        </div>
+        <div>Sparkling clean </div>
+        <div>
+          🛁
+          <NumFont>
+            {sparkling_clean}
+          </NumFont>
+        </div>
+        <div>Amazing amenities </div>
+        <div>
+          ☕️
+          <NumFont>
+            {amazing_amenities}
+          </NumFont>
+        </div>
+        <div>Outstanding hospitality</div>
+        <div>
+          ♥️
+          <NumFont>
+            {hospitality}
+          </NumFont>
+        </div>
       </InnerContainer>
     </OuterContainer>
   </WrappReviews>
