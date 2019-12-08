@@ -17,7 +17,7 @@ const Crop = styled.img`
 
 const User = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 20% 80%;
   grid-template-rows: 1fr;
   width: 350px
 `;
@@ -45,7 +45,7 @@ const OwnersRes = styled.div`
 
 const DateFont = styled.span`
   font-family: 'Montserrat', sans-serif;
-  font-weight: regular;
+  font-weight: extra-light;
   size: 8px;
   color: #484848;
 `;
@@ -59,8 +59,8 @@ const NameFont = styled.span`
 
 const ReviewFont = styled.span`
   font-family: 'Montserrat', sans-serif;
-  font-weight: regular;
-  size: 16px;
+  font-weight: light;
+  size: 14px;
   color: #484848; 
 `;
 
