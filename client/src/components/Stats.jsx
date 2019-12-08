@@ -25,7 +25,10 @@ const NumFont = styled.span`
 
 const ReviewsHeader = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: 40% 10% 49%;
+  width: 130px;
+  padding: 10px 5px 25px 5px;
+  margin-left: -5px;
   grid-template-rows: 1fr;
   grid-column-gap: 20px
   grid-row-gap: 20px
@@ -34,6 +37,10 @@ const ReviewsHeader = styled.div`
   font-family: 'Montserrat', sans-serif;
   font-weight: light;
   color: #484848;
+`;
+
+const HorBarColor = styled.div`
+  color: rgb(235, 235, 235);
 `;
 
 const OuterContainer = styled.div`
@@ -80,14 +87,15 @@ const Stats = ({
             {avg_rating}
           </NumFont>
         </div>
+        <HorBarColor>
+          <div>|</div>
+        </HorBarColor>
         <div>
-            <div>
           <NumFont>
-              {counts}
-              &nbsp;
+            {counts}
+            &nbsp;
           </NumFont>
-                Reviews
-            </div>
+            Reviews
         </div>
       </ReviewsHeader>
     </IconContext.Provider>
@@ -110,7 +118,7 @@ const Stats = ({
           <NumFont>
             {accuracy}
           </NumFont>
-          </div>
+        </div>
         <div>Communication </div>
         <div>
           &nbsp;
