@@ -25,7 +25,7 @@ const NumFont = styled.span`
 
 const ReviewsHeader = styled.div`
   display: grid;
-  grid-template-columns: 40% 10% 49%;
+  grid-template-columns: 45% 10% 45%;
   width: 130px;
   padding: 10px 5px 25px 5px;
   margin-left: -5px;
