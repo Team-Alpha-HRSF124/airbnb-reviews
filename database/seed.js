@@ -25,6 +25,7 @@ function listings() {
     const avg_rating = Math.floor(Math.random() * (5 * 100 - 3.5 * 100) + 3.5 * 100) / (1 * 100);
     const communication = Math.floor(Math.random() * (5 * 100 - 3.5 * 100) + 3.5 * 100) / (1 * 100);
     const check_in = Math.floor(Math.random() * (5 * 100 - 3.5 * 100) + 3.5 * 100) / (1 * 100);
+    const location = Math.floor(Math.random() * (5 * 100 - 3.5 * 100) + 3.5 * 100) / (1 * 100);
     const accuracy = Math.floor(Math.random() * (5 * 100 - 3.5 * 100) + 3.5 * 100) / (1 * 100);
     const value = Math.floor(Math.random() * (5 * 100 - 3.5 * 100) + 3.5 * 100) / (1 * 100);
     const cleanliness = Math.floor(Math.random() * (5 * 100 - 3.5 * 100) + 3.5 * 100) / (1 * 100);
@@ -42,6 +43,7 @@ function listings() {
       check_in,
       accuracy,
       value,
+      location,
       cleanliness,
       hospitality,
       stylish,

@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS owners (
 CREATE TABLE IF NOT EXISTS listings (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(45),
-  avg_rating DECIMAL(4, 1),
+  avg_rating DECIMAL(4, 2),
   communication DECIMAL(4, 1),
   check_in DECIMAL(4, 1),
   accuracy DECIMAL(4, 1),
@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS listings (
   cleanliness DECIMAL(4, 1),
   hospitality BOOLEAN,
   stylish INT,
+  location DECIMAL(4, 1),
   sparkling_clean INT,
   quick_responses INT,
   amazing_amenities INT,

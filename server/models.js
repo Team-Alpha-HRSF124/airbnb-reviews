@@ -36,12 +36,12 @@ module.exports = {
   },
   listings: (d) => {
     const queryVal = [d.title, d.avg_rating, d.communication,
-    d.check_in, d.accuracy, d.value,
+    d.check_in, d.accuracy, d.value, d.location,
     d.cleanliness,
     d.hospitality, d.stylish, d.sparkling_clean,
     d.quick_responses, d.amazing_amenities, d.counts, d.owners_id];
 
-    const quuery = 'INSERT INTO listings (title, avg_rating, communication, check_in, accuracy, value, cleanliness, hospitality, stylish,sparkling_clean, quick_responses, amazing_amenities, counts, owners_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    const quuery = 'INSERT INTO listings (title, avg_rating, communication, check_in, accuracy, value, cleanliness, location, hospitality, stylish,sparkling_clean, quick_responses, amazing_amenities, counts, owners_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
     connection.query(quuery, queryVal, (err, data) => {
       if (err) {
