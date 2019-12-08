@@ -2,9 +2,23 @@
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
+import { TiArrowBack } from 'react-icons/ti';
+import { TiArrowForward } from 'react-icons/ti';
 import Stats from './Stats.jsx';
 import Reviews from './Reviews.jsx';
 import Search from './Search.jsx';
+
+const StyledButton = styled.button`
+  border-radius: 50%;
+  color: #008489;
+`;
+
+const Center = styled.div`
+  display: flex;
+  width: 700px;
+  justify-content: center;
+`;
 
 class App extends React.Component {
   constructor(props) {
@@ -19,7 +33,7 @@ class App extends React.Component {
       end: 7,
       max: 0,
       showBack: false,
-      showNext: true,
+      showNext: false,
     };
     this.getListing = this.getListing.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -47,9 +61,11 @@ class App extends React.Component {
         const reviewsLength = results.data.reviews.length;
         const totalPage = Math.ceil(reviewsLength / 7);
         const max = totalPage * 7;
-        let showNext = true;
-        if (reviewsLength < 7) {
+        let showNext;
+        if (reviewsLength <= 7) {
           showNext = false;
+        } else {
+          showNext = true;
         }
         this.setState({
           listing: results.data.stats[0],
@@ -131,8 +147,10 @@ class App extends React.Component {
         <Stats listing={listing} />
         <Search handleSearch={this.handleSearch} />
         <Reviews reviews={this.filterBySearchedTerm()} />
-        {showBack ? <button type="button" onClick={this.pervPage}>Back</button> : null}
-        {showNext ? <button type="button" onClick={this.nextPage}>Next</button> : null}
+        <Center>
+          {showBack ? <StyledButton type="button" onClick={this.pervPage}><TiArrowBack /></StyledButton> : null}
+          {showNext ? <StyledButton type="button" onClick={this.nextPage}><TiArrowForward /></StyledButton> : null}
+        </Center>
       </div>
     );
   }
