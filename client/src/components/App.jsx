@@ -3,8 +3,7 @@
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { TiArrowBack } from 'react-icons/ti';
-import { TiArrowForward } from 'react-icons/ti';
+import { TiArrowBack, TiArrowForward } from 'react-icons/ti';
 import Stats from './Stats.jsx';
 import Reviews from './Reviews.jsx';
 import Search from './Search.jsx';
@@ -148,8 +147,8 @@ class App extends React.Component {
         <Search handleSearch={this.handleSearch} />
         <Reviews reviews={this.filterBySearchedTerm()} />
         <Center>
-          {showBack ? <StyledButton type="button" onClick={this.pervPage}><TiArrowBack /></StyledButton> : null}
-          {showNext ? <StyledButton type="button" onClick={this.nextPage}><TiArrowForward /></StyledButton> : null}
+          {showBack ? <StyledButton type="button" style={{ width: '30px', height: '30px' }} onClick={this.pervPage}><TiArrowBack /></StyledButton> : null}
+          {showNext ? <StyledButton type="button" style={{ width: '30px', height: '30px' }} onClick={this.nextPage}><TiArrowForward /></StyledButton> : null}
         </Center>
       </div>
     );
