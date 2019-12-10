@@ -53,7 +53,7 @@ class App extends React.Component {
     } else {
       const arr = endpoint.split('/');
       const id = arr[arr.length - 2];
-      url = `http://localhost:3000/api/listing/${id}`;
+      url = `http://localhost:3003/api/listing/${id}`;
     }
     axios.get(url)
       .then((results) => {
