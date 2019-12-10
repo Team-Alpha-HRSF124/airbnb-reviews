@@ -1,11 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
 const path = require('path');
 
-const port = 3000;
+const port = 3003;
 const Controllers = require('./controllers.js');
+
+app.use(cors());
 
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
 
