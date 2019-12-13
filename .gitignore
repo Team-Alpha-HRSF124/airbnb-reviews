@@ -9,3 +9,5 @@ coverage
 config
 
 /docker-compose.yml
+
+docker
