@@ -11,7 +11,7 @@
   },
   "scripts": {
     "react-dev": "webpack --mode=production",
-    "start": "nodemon server/index.js",
+    "start": "node server/index.js",
     "seed:db": "node database/seed.js",
     "test": "jest --coverage"
   },

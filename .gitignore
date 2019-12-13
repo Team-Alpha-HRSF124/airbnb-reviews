@@ -2,6 +2,10 @@ node_modules
 
 coverage
 
-.eslint.js
+/eslint.js
 
-.faker.text
+/faker.text
+
+config
+
+/docker-compose.yml

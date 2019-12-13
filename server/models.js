@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
 const mysql = require('mysql');
 const async = require('async');
+const db = require('../config/models.config.js');
 
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'airbnb',
+  host: db.host,
+  user: db.user,
+  password: db.password,
+  database: db.database,
 });
 
 connection.connect();
@@ -14,8 +15,8 @@ connection.connect();
 module.exports = {
   users: (fakeUser) => {
     const queryVal = [fakeUser.name, fakeUser.image];
-    const quuery = 'INSERT INTO USERS (name, image) VALUES(?, ?)';
-    connection.query(quuery, queryVal, (err, data) => {
+    const query = 'INSERT INTO users (name, image) VALUES(?, ?)';
+    connection.query(query, queryVal, (err, data) => {
       if (err) {
         console.log(err);
       } else {
@@ -25,8 +26,8 @@ module.exports = {
   },
   owners: (fakeData) => {
     const queryVal = [fakeData.name, fakeData.image];
-    const quuery = 'INSERT INTO OWNERS (name, image) VALUES(?, ?)';
-    connection.query(quuery, queryVal, (err, data) => {
+    const query = 'INSERT INTO owners (name, image) VALUES(?, ?)';
+    connection.query(query, queryVal, (err, data) => {
       if (err) {
         console.log(err);
       } else {
@@ -41,9 +42,9 @@ module.exports = {
     d.hospitality, d.stylish, d.sparkling_clean,
     d.quick_responses, d.amazing_amenities, d.counts, d.owners_id];
 
-    const quuery = 'INSERT INTO listings (title, avg_rating, communication, check_in, accuracy, value, cleanliness, location, hospitality, stylish,sparkling_clean, quick_responses, amazing_amenities, counts, owners_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    const query = 'INSERT INTO listings (title, avg_rating, communication, check_in, accuracy, value, cleanliness, location, hospitality, stylish,sparkling_clean, quick_responses, amazing_amenities, counts, owners_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
-    connection.query(quuery, queryVal, (err, data) => {
+    connection.query(query, queryVal, (err, data) => {
       if (err) {
         console.log(err);
       } else {
@@ -53,8 +54,8 @@ module.exports = {
   },
   reviews: (fakeData) => {
     const queryVal = [fakeData.date, fakeData.review, fakeData.users_id, fakeData.listings_id];
-    const quuery = 'INSERT INTO REVIEWS (date, review, users_id,listings_id) VALUES(?, ?, ?, ?)';
-    connection.query(quuery, queryVal, (err, data) => {
+    const query = 'INSERT INTO reviews (date, review, users_id, listings_id) VALUES(?, ?, ?, ?)';
+    connection.query(query, queryVal, (err, data) => {
       if (err) {
         console.log(err);
       } else {
@@ -65,8 +66,8 @@ module.exports = {
   ownersResponses: (fakeResponses) => {
     const queryVal = [fakeResponses.response,
       fakeResponses.date, fakeResponses.reviews_id, fakeResponses.owners_id];
-    const quuery = 'INSERT INTO owners_responses (response, date, reviews_id, owners_id) VALUES(?, ?, ?, ?)';
-    connection.query(quuery, queryVal, (err, data) => {
+    const query = 'INSERT INTO owners_responses (response, date, reviews_id, owners_id) VALUES(?, ?, ?, ?)';
+    connection.query(query, queryVal, (err, data) => {
       if (err) {
         console.log(err);
       } else {
