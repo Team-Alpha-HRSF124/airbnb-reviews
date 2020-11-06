@@ -13,7 +13,8 @@
     "react-dev": "webpack --mode=production",
     "start": "node server/index.js",
     "seed:db": "node database/seed.js",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -56,7 +57,9 @@
   },
   "dependencies": {
     "babel-eslint": "^10.0.3",
+    "browser-sync": "^2.26.7",
     "eslint-config-airbnb-base": "^14.0.0",
+    "gulp": "^4.0.2",
     "mysql": "^2.17.1",
     "nodemon": "^2.0.1",
     "path": "^0.12.7",
